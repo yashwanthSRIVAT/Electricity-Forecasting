@@ -1,0 +1,66 @@
+{%extends 'admins/admin_base.html'%}
+{%load static%}
+{%block contents%}
+<style>
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+<section id="hero_section" class="top_cont_outer">
+    <div class="hero_wrapper">
+        <div class="container">
+            <div class="hero_section">
+                <div class="row">
+                    <h2>Machine Learning Results</h2>
+                    <table border="1" class="dataframe">
+                        <thead>
+                        <tr style="text-align: right;">
+                            <th>S.No</th>
+                            <th>Algorithm</th>
+                            <th>MSE</th>
+                            <th>MAPE</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>LASSO</td>
+                            <td>{{ls_mse}}</td>
+                            <td>{{ls_mae}}</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Kernel Lasso</td>
+                            <td>{{l_mae}}</td>
+                            <td>{{l_mse}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%endblock%}

@@ -1,0 +1,53 @@
+{%extends 'users/user_base.html'%}
+{%load static%}
+{%block contents%}
+ <!--Hero_Section-->
+<section id="hero_section" class="top_cont_outer">
+    <div class="hero_wrapper">
+        <div class="container">
+            <div class="hero_section">
+                <div class="row">
+                    <div class="col-lg-5 col-sm-7">
+                        <div class="top_left_cont zoomIn wow animated">
+
+                            <h2>An Electricity <strong> Load Forecasting Algorithm Based</strong> on Kernel Lasso Regression</h2>
+                            <p>Electricity load forecasting is an important guarantee for the safe and economic operation of power grids. For electricity load data with higher dimensions, the forecasting effect of traditional linear regression algorithms are usually not ideal</p>
+                            <!--<a href="#service" class="read_more2">Read more</a>-->
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-sm-5">
+                        <img src="{%static 'img/main_device_image.png'%}" class="zoomIn wow animated" alt=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Hero_Section-->
+
+<section id="aboutUs"><!--Aboutus-->
+    <div class="inner_wrapper">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="inner_section">
+                <div class="row">
+                    <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12 pull-right"><img
+                            src="{%static 'img/about-img.jpg'%}" class="img-circle delay-03s animated wow zoomIn"
+                            alt=""></div>
+                    <div class=" col-lg-7 col-md-7 col-sm-7 col-xs-12 pull-left">
+                        <div class=" delay-01s animated fadeInDown wow animated">
+                            <h3>An Electricity Load Forecasting Algorithm Based on Kernel Lasso Regression</h3><br/>
+                            <p>Electricity load forecasting is an important guarantee for the safe and economic operation of power grids. For electricity load data with higher dimensions, the forecasting effect of traditional linear regression algorithms are usually not ideal. Kernel function can be used to map the data to a high-dimensional space, so that can make the linear method handle non-linear data. This paper introduces the kernel function into the lasso linear regression method and applies it to non-linear problems to solve the regression analysis problem of non-time series data. Through using the 96-point electricity load data of users in Shanghai since 2014 for 851 consecutive days, the prediction effect of kernel lasso regression is better than lasso regression in terms of minimum mean square error and minimum average percentage error, which shows that the method can achieve better power load forecasting results.</p>
+                        </div>
+                        <div class="work_bottom"><span>Want to know more..</span> <a href="https://ieeexplore.ieee.org/document/9510772" target="_blank" class="contact_btn">Contact Us</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%}
