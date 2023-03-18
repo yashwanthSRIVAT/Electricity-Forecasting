@@ -9,7 +9,8 @@ table {
 }
 
 table td, table th {
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
+  border: 1px solid black;
   padding: 8px;
 }
 
@@ -30,6 +31,7 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  color: black;
 }
 
 td, th {
@@ -41,12 +43,15 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+tr:nth-child(odd) {
+  background-color: #dddddd;
+}
 </style>
 <section id="hero_section" class="top_cont_outer">
     <div class="hero_wrapper">
         <div class="container">
             <div class="hero_section">
-                <div class="row">
+                <div class="row" style="margin-bottom: 50px;">
                      {{data|safe}}
 
                 </div>

@@ -6,6 +6,7 @@ table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  color: black;
 }
 
 table td, table th {
@@ -14,6 +15,7 @@ table td, table th {
 }
 
 table tr:nth-child(even){background-color: #f2f2f2;}
+table tr:nth-child(odd){background-color: #f2f2f2;}
 
 table tr:hover {background-color: #ddd;}
 
@@ -29,7 +31,7 @@ table th {
     <div class="hero_wrapper">
         <div class="container">
             <div class="hero_section">
-                <div class="row">
+                <div class="row" style="margin-bottom: 50px;">
                     <h2>Machine Learning Results</h2>
                     <table border="1" class="dataframe">
                         <thead>
