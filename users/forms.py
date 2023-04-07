@@ -3,8 +3,8 @@ from .models import UserRegistrationModel
 
 
 class UserRegistrationForm(forms.ModelForm):
-    name = forms.CharField(widget=forms.TextInput(attrs={'pattern': '[a-zA-Z]+'}), required=True, max_length=100)
-    loginid = forms.CharField(widget=forms.TextInput(attrs={'pattern': '[a-zA-Z]+'}), required=True, max_length=100)
+    name = forms.CharField(widget=forms.TextInput(attrs={'pattern': '[a-zA-Z\s]+', 'title': 'Enter you Name'}), required=True, max_length=100)
+    loginid = forms.CharField(widget=forms.TextInput(attrs={'pattern': '[a-zA-Z0-9]+', 'title': 'Lowercase, Uppercase and Numbers are valid'}), required=True, max_length=100)
     password = forms.CharField(widget=forms.PasswordInput(attrs={'pattern': '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}',
                                                                  'title': 'Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters'}),
                                required=True, max_length=100)
