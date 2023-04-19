@@ -18,7 +18,7 @@
                             <th>Email</th>
                             <th>Locality</th>
                             <th>Status</th>
-                            <th>Activate</th>
+                            <th>Modify Access</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -31,12 +31,22 @@
                             <td>{{i.email}}</td>
                             <td>{{i.locality}}</td>
                             <td>{{i.status}}</td>
-                            {% if i.status == 'waiting' %}
+                            <!-- {% if i.status == 'waiting' %}
                             <td><a class="btn-link" href="/AdminActivaUsers/?uid={{ i.id }}"
                                    style="color:DARKBLUE">Activate</a></td>
                             {% else %}
                             <td> Activated</td>
-                            {% endif %}
+                            {% endif %} -->
+
+                            <td>
+                                <a class="btn-link" href="/AdminActivaUsers/?uid={{ i.id }}&currentStatus={{ i.status}}" style="color: white">
+                                    {% if i.status == 'waiting' or i.status == 'deactivated' %}
+                                        Activate
+                                    {% else %}
+                                        Deactivate
+                                    {% endif %}
+                                </a>
+                            </td>
                         </tr>
                         {% endfor %}
 

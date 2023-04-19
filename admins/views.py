@@ -30,9 +30,11 @@ def ViewRegisteredUsers(request):
 def AdminActivaUsers(request):
     if request.method == 'GET':
         id = request.GET.get('uid')
-        status = 'activated'
-        print("PID = ", id, status)
-        UserRegistrationModel.objects.filter(id=id).update(status=status)
+        current_status = request.GET.get('currentStatus')
+        # status = 'activated'
+        # print("PID = ", id, status)
+        new_status = 'activated' if current_status == 'waiting' or current_status == 'deactivated' else 'deactivated'
+        UserRegistrationModel.objects.filter(id=id).update(status=new_status)
         data = UserRegistrationModel.objects.all()
         return render(request, 'admins/RegisteredUsers.html', {'data': data})
 

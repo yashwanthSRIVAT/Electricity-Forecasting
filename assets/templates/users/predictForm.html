@@ -40,63 +40,64 @@
                     <div class=" col-lg-7 col-md-7 col-sm-7 col-xs-12 pull-left">
                         <div class=" delay-01s animated fadeInDown wow animated">
                             <p>
-                            <h2>Machine Learning Prediction Form</h2>
-                            <form action="{%url 'userPrediction'%}" method="post">
-                                {%csrf_token%}
+                            <h2>Predict Electricity Loads</h2>
+                            <form id = "prediction-form" action="/userPrediction/" method="post">
+                                {% csrf_token %}
                                 <table border="1" class="dataframe">
                                     <thead>
                                     <tr style="text-align: right;">
-                                        <th>Lable</th>
-                                        <th>Input</th>
+                                        <th>Days</th>
+                                        <th>Electricity loads in Kilo-Watts (kW)</th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
                                         <td>Day 1</td>
-                                        <td><input type="number" min="1" max="1000" step="0.1" name="day1" required>
+                                        <td><input type="number" min="1" max="1000" step="0.1" name="day1" required><p class = 'kW'>kW</p>
                                         </td>
 
                                     </tr>
                                     <tr>
                                         <td>Day 2</td>
-                                        <td><input type="number" min="1" max="1000" step="0.1" name="day2" required>
+                                        <td><input type="number" min="1" max="1000" step="0.1" name="day2" required><p class = 'kW'>kW</p>
                                         </td>
 
                                     </tr>
                                     <tr>
                                         <td>Day 3</td>
-                                        <td><input type="number" min="1" max="1000" step="0.1" name="day3" required>
+                                        <td><input type="number" min="1" max="1000" step="0.1" name="day3" required><p class = 'kW'>kW</p>
                                         </td>
 
                                     </tr>
                                     <tr>
                                         <td>Day 4</td>
-                                        <td><input type="number" min="1" max="1500" step="0.1" name="day4" required>
+                                        <td><input type="number" min="1" max="1500" step="0.1" name="day4" required><p class = 'kW'>kW</p>
                                         </td>
 
                                     </tr>
                                     <tr>
                                         <td>Day 5</td>
-                                        <td><input type="number" min="1" max="1500" step="0.1" name="day5" required>
+                                        <td><input type="number" min="1" max="1500" step="0.1" name="day5" required><p class = 'kW'>kW</p>
                                         </td>
 
                                     </tr>
                                     <tr>
                                         <td>Day 6</td>
-                                        <td><input type="number" min="1" max="1500" step="0.1" name="day6" required>
+                                        <td><input type="number" min="1" max="1500" step="0.1" name="day6" required><p class = 'kW'>kW</p>
                                         </td>
 
                                     </tr>
                                     <tr>
                                         <td>Day 7</td>
-                                        <td><input type="number" min="1" max="1500" step="0.1" name="day7" required>
+                                        <td><input type="number" min="1" max="1500" step="0.1" name="day7" required><p class = 'kW'>kW</p>
                                         </td>
 
                                     </tr>
                                     <tr>
-                                        <td><h3>Consumption: {{pred}}</h3></td>
-                                        <td><input type="submit" value="submit"></td>
+                                        <!-- <td><h3>Consumption: {{pred}}</h3></td> -->
+                                        <td><h3 id="pred">Estimated load on Day 8: <span id='result'></span></h3></td>
+                                        <td><input id = "predict-btn" type="submit" value="Submit"></td>
 
                                     </tr>
                                     </tbody>
@@ -116,5 +117,49 @@
         </div>
     </div>
 </section>
+
+<style>
+    td {
+        width: 50%;
+    }
+    .kW {
+        display: inline;
+        margin-left: 5px;
+        color: #000000;
+    }
+    #result {
+        color:#04AA6D;
+    }
+</style>
+
+<script>
+    const form = document.getElementById('prediction-form');
+    const predictBtn = document.getElementById('predict-btn');
+    const result = document.getElementById('result');
+
+predictBtn.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const formData = new FormData(form);
+
+  fetch(form.action, {
+    method: 'POST',
+    headers: {
+      'X-CSRFToken': '{{ csrf_token }}' // add this line to set the CSRF token
+    },
+    body: formData
+  })
+    .then(response => response.json())
+    .then(data => {
+        // add code to reduce the precision of the result
+        result.innerHTML = data.prediction[0].toFixed(2) + 'kW';
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+});
+
+</script>
+
 
 {%endblock%}

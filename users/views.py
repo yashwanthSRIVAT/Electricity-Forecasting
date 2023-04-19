@@ -3,7 +3,9 @@ from django.contrib import messages
 from .forms import UserRegistrationForm
 from .models import UserRegistrationModel
 from django.conf import settings
+from django.http import JsonResponse
 import os
+import json
 
 # Create your views here.
 def UserRegisterActions(request):
@@ -21,6 +23,7 @@ def UserRegisterActions(request):
     else:
         form = UserRegistrationForm()
     return render(request, 'UserRegistrations.html', {'form': form})
+
 def UserLoginCheck(request):
     if request.method == "POST":
         loginid = request.POST.get('loginname')
@@ -37,8 +40,11 @@ def UserLoginCheck(request):
                 request.session['email'] = check.email
                 print("User id At", check.id, status)
                 return render(request, 'users/UserHome.html', {})
+            elif status == "deactivated":
+                messages.success(request, 'Your Account has been deactivated.')
+                return render(request, 'UserLogin.html')
             else:
-                messages.success(request, 'Your Account Not at activated')
+                messages.success(request, 'Your Account has not been activated')
                 return render(request, 'UserLogin.html')
         except Exception as e:
             print('Exception is ', str(e))
@@ -64,7 +70,10 @@ def lassoResults(request):
     return render(request, 'users/ml_results.html',{'ls_mae': ls_mae,'ls_mse': ls_mse,'l_mae': l_mae, 'l_mse': l_mse})
 
 def userPrediction(request):
-    if request.method=='POST':
+    if request.method == 'POST':
+        # body = request.body
+        # data = json.loads(body)
+        # data = request.POST.get()
         day1 = float(request.POST.get('day1'))
         day2 = float(request.POST.get('day2'))
         day3 = float(request.POST.get('day3'))
@@ -73,14 +82,18 @@ def userPrediction(request):
         day6 = float(request.POST.get('day6'))
         day7 = float(request.POST.get('day7'))
         model_file = os.path.join(settings.MEDIA_ROOT, 'model.alex')
-        test_set = [day1,day2,day3,day4,day5,day6,day7]
+        test_set = [day1, day2, day3, day4, day5, day6, day7]
         import pickle
         model = pickle.load(open(model_file,'rb'))
         pred = model.predict([test_set])
-        print("===>",pred)
-        return render(request, 'users/predictForm.html', {'pred': pred})
+        print("===>", pred)
+        response_data = {'prediction': pred.tolist()}
+        print(f'\n\nType of data.tolist() is : {type(pred.tolist())}\n\n')
+        print(pred.tolist())
+        return JsonResponse(response_data)
     else:
         return render(request, 'users/predictForm.html',{})
+
 
 def userForeCast(request):
     from .utility.forecastanalysis import start_forecasting
