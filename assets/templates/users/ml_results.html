@@ -12,7 +12,8 @@ table {
 }
 
 table td, table th {
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
+  border: 1px solid black;
   padding: 8px;
   color: black;
 }
@@ -26,11 +27,12 @@ table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  /* background-color: #04AA6D; */
+  background-color: #3498DB;
   color: white;
 }
 </style>
-<section id="hero_section" class="top_cont_outer">
+<section id="hero_section">
     <div class="hero_wrapper">
         <div class="container">
             <div class="hero_section">
@@ -38,7 +40,9 @@ table th {
                     <h2>Machine Learning Results</h2>
                     <div class="card">
                         <div class="info-body">
+                            <img src="{% static 'img/info-card-bulb.png' %}" height="50px" class="info-logo">
                             <h5 class="info-title">Accuracy Comparisions</h5>
+                            <div class="info-spc"></div>
                             <p class="info-text">Both LASSO and Kernel Lasso are linear regression algorithms that are commonly used for featurhigh-dimense selection. However, we see that Kernel Lasso model is more accurate than LASSO for our electricity loads dataset. This is because Kernel Lasso uses a kernel function to transform the input data into a higher dimensional space where it becomes easier to find a separating hyperplane. In contrast, LASSO uses a L1 penalty to force some of the regression coefficients to be exactly zero, which can lead to underfitting or overfitting the model.
                                 <br /><br />
                                 In our specific data set, which is a time-series data set of electricity loads, the relationship between the features and the target variable is likely to be non-linear due to seasonal trends and other factors. Therefore, using Kernel Lasso to select features leads to more accurate predictions than using LASSO.</p>

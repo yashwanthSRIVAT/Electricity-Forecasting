@@ -2,7 +2,7 @@
 {%load static%}
 {%block contents%}
 
-<link rel="stylesheet" href="{% static 'css/info-card.css' %}">
+<link rel="stylesheet" href="{% static 'css/info-card.css' %}" type="text/css">
 <style>
 table {
   font-family: Arial, Helvetica, sans-serif;
@@ -24,7 +24,8 @@ table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  /* background-color: #04AA6D; */
+  background-color: #3498DB;
   color: white;
 }
 </style>
@@ -50,23 +51,25 @@ tr:nth-child(even) {
 }
 
 .custom-list li:before {
-  content: url('{% static "img/pngwing.com (1).png" %}'); /* Use an image as the marker */
+  content: url('{% static "img/forecast_list_marker.png" %}'); /* Use an image as the marker */
   margin-right: 10px; /* Add some spacing between the marker and the text */
 }
 
 </style>
-<section id="hero_section" class="top_cont_outer">
+<section id="hero_section">
     <div class="hero_wrapper">
         <div class="container">
             <div class="hero_section">
               <div class="card">
                 <div class="info-body">
+                  <img src="{% static 'img/info-card-bulb.png' %}" height="50px"  class="info-logo">
                   <h5 class="info-title">Forecasting with SARIMA and Kernel-Lasso </h5>
-                    <ul class="custom-list">
-                      <li>The SARIMA model will generate daily load forecasts until 2028.</li>
-                      <li>For each month generated, the Kernel-Lasso regressor will take the last 7 days of load data and use them to predict the load for the first day of the next month.</li>
-                      <li>To get a range of possible values, the regressor will be fed both the lower and upper bounds of the 7-day load data.</li>
-                    </ul>                    
+                  <div class="info-spc"></div>
+                  <ul class="custom-list">
+                    <li>The SARIMA model will generate daily load forecasts until 2028.</li>
+                    <li>For each month generated, the Kernel-Lasso regressor will take the last 7 days of load data and use them to predict the load for the first day of the next month.</li>
+                    <li>To get a range of possible values, the regressor will be fed both the lower and upper bounds of the 7-day load data.</li>
+                  </ul>                    
                   </div>
                 </div>
               </div>

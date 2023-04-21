@@ -27,7 +27,8 @@
         padding-top: 12px;
         padding-bottom: 12px;
         text-align: left;
-        background-color: #04AA6D;
+        /* background-color: #04AA6D; */
+        background-color: #3498DB;
         color: white;
     }
 </style>
@@ -37,7 +38,9 @@
             <div class="inner_section">
                 <div class="card">
                     <div class="info-body">
+                        <img src="{% static 'img/info-card-bulb.png' %}" height="50px" class="info-logo">
                         <h5 class="info-title">Predict Electricity Loads</h5> <br />
+                        <div class="info-spc"></div>
                         <p class="info-text">
                             Enter electricity-load records of a week below, and our model will instantly predict the next day's load for you. Try it out now!
                         </p>

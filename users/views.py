@@ -71,7 +71,7 @@ def usersViewDataset(request):
 
     # df.to_csv('Shanghai_data.csv', index=False)
 
-    dataset_path = os.path.join(settings.MEDIA_ROOT, 'Shanghai_data.csv')
+    dataset_path = os.path.join(settings.MEDIA_ROOT, 'Shanghai_dataset.csv')
     df = pd.read_csv(dataset_path)
 
     df = df.to_html(index=None)

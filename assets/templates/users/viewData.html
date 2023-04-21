@@ -24,7 +24,8 @@ table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  /* background-color: #04AA6D; */
+  background-color: #3498DB;
   color: white;
 }
 </style>
@@ -50,14 +51,16 @@ tr:nth-child(odd) {
 }
 
 </style>
-<section id="hero_section" class="top_cont_outer">
+<section id="hero_section">
     <div class="hero_wrapper">
         <div class="container">
             <div class="hero_section">
               <div class="row">
                 <div class="card">
                   <div class="info-body">
-                    <h5 class="info-title">Electricity Load Dataset</h5>
+                    <img src="{% static 'img/info-card-bulb.png' %}" height="50px" class="info-logo">
+                    <h5 class="info-title">Electricity Load Dataset</h5> <br>
+                    <div class="info-spc"></div>
                     <p class="info-text">
                       This dataset is a time-series dataset that records the electricity load of Shanghai households from 02-01-2000 to 24-02-2019. The dataset has eight columns: 'date', 'day1', 'day2', 'day3', 'day4', 'day5', 'day6', 'day7', and 'nextDay'. The 'date' column records the date of the week, and the rest of the columns record the electricity load of households for that day of the week. The 'nextDay' column records the average electricity load of the next day based on the electricity loads of the seven previous days.
                     </p> <br />

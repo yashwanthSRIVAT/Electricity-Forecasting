@@ -2,22 +2,33 @@
     /* background-color: #f2f2f2; */
     background: linear-gradient(to bottom right, rgba(52, 152, 219, 0.8), rgba(255, 255, 255, 0.8));
     color: black;
-    margin-bottom: 50px;
+    margin: 0 10px 50px 10px;
     padding: 10px 40px;
     text-align: justify;
     border-radius: 20px;
     box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.5);
-  }
+}
   
-  .info-title {
+.info-title {
+    display: inline-block;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
     font-weight: bold;
-  }
-  
-  .download-btn {
-    margin-top: 15px;
-    /* background-color: #04AA6D; */
-    background-color: rgb(8, 10, 44);
-    color: white;
-  }
+    vertical-align: middle;
+}
+
+.info-logo {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.info-spc {
+  height: 20px;
+}
+
+.download-btn {
+  margin-top: 15px;
+  /* background-color: #04AA6D; */
+  background-color: rgb(8, 10, 44);
+  color: white;
+}
