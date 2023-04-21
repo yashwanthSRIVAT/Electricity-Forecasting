@@ -1,6 +1,8 @@
 {%extends 'users/user_base.html'%}
 {%load static%}
 {%block contents%}
+
+<link rel="stylesheet" href="{% static 'css/info-card.css' %}" type="text/css">
 <style>
 table {
   font-family: Arial, Helvetica, sans-serif;
@@ -34,13 +36,21 @@ table th {
             <div class="hero_section">
                 <div class="row">
                     <h2>Machine Learning Results</h2>
+                    <div class="card">
+                        <div class="info-body">
+                            <h5 class="info-title">Accuracy Comparisions</h5>
+                            <p class="info-text">Both LASSO and Kernel Lasso are linear regression algorithms that are commonly used for featurhigh-dimense selection. However, we see that Kernel Lasso model is more accurate than LASSO for our electricity loads dataset. This is because Kernel Lasso uses a kernel function to transform the input data into a higher dimensional space where it becomes easier to find a separating hyperplane. In contrast, LASSO uses a L1 penalty to force some of the regression coefficients to be exactly zero, which can lead to underfitting or overfitting the model.
+                                <br /><br />
+                                In our specific data set, which is a time-series data set of electricity loads, the relationship between the features and the target variable is likely to be non-linear due to seasonal trends and other factors. Therefore, using Kernel Lasso to select features leads to more accurate predictions than using LASSO.</p>
+                        </div>
+                    </div>
                     <table border="1" class="dataframe">
                         <thead>
                         <tr style="text-align: right;">
                             <th>S.No</th>
                             <th>Algorithm</th>
-                            <th>MSE</th>
-                            <th>MAPE</th>
+                            <th>Mean Square Error (MSE)</th>
+                            <th>Mean Absolute Percentage Error (MAPE)</th>
                         </tr>
                         </thead>
                         <tbody>

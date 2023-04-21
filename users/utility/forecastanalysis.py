@@ -64,4 +64,8 @@ def start_forecasting():
     plt.legend()
     # plt.show()
     #print(pred_ci)
+
+    with open('my_forecast.html', 'w') as f:
+        f.write(pred_ci.to_html())
+    
     return pred_ci

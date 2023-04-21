@@ -39,6 +39,7 @@ urlpatterns = [
     path("lassoResults/", usr.lassoResults, name="lassoResults"),
     path("userPrediction/", usr.userPrediction, name='userPrediction'),
     path("userForeCast/", usr.userForeCast, name="userForeCast"),
+    path('download_file/<str:filename>', usr.download_file, name='download_file'),
 
 
     ### Admin Side Views

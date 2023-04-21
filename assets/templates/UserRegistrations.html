@@ -16,6 +16,7 @@
                                 <div class = "form-hd">
                                     <h1>Registration Form</h1>
                                     <p><i>All fields are required</i></p>
+                                    <p style="color:#4CAF50"><i><span class="remember">*</span> Remeber these credentials for log-in</i></p>
                                 </div>
                                 <br />
                                 <form action="{% url 'UserRegisterActions' %}" method="POST">
@@ -29,14 +30,14 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><label class="animated animated-label fadeInRight" for="id_loginid">Login ID:</label></td>
+                                            <td><label class="animated animated-label fadeInRight" for="id_loginid">Login ID:<span class = 'remember'>*</span></label></td>
                                             <td>
                                                 {{ form.loginid }}
                                                 <span class = "error-message"></span>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><label class="animated animated-label fadeInRight" for="id_password">Password:</label></td>
+                                            <td><label class="animated animated-label fadeInRight" for="id_password">Password:<span class = 'remember'>*</span></label></td>
                                             <td>
                                                 {{ form.password }}
                                                 <span class = "error-message"></span>
@@ -176,6 +177,11 @@ label {
     font-size: 12px;
     margin-top: 5px;
     width: 150px;
+}
+
+.remember {
+    color: #4CAF50;
+    font-weight: bold;
 }
 
     

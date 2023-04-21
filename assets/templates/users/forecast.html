@@ -1,6 +1,8 @@
 {%extends 'users/user_base.html'%}
 {%load static%}
 {%block contents%}
+
+<link rel="stylesheet" href="{% static 'css/info-card.css' %}">
 <style>
 table {
   font-family: Arial, Helvetica, sans-serif;
@@ -42,14 +44,37 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+.custom-list {
+  list-style-type: none;
+}
+
+.custom-list li:before {
+  content: url('{% static "img/pngwing.com (1).png" %}'); /* Use an image as the marker */
+  margin-right: 10px; /* Add some spacing between the marker and the text */
+}
+
 </style>
 <section id="hero_section" class="top_cont_outer">
     <div class="hero_wrapper">
         <div class="container">
             <div class="hero_section">
+              <div class="card">
+                <div class="info-body">
+                  <h5 class="info-title">Forecasting with SARIMA and Kernel-Lasso </h5>
+                    <ul class="custom-list">
+                      <li>The SARIMA model will generate daily load forecasts until 2028.</li>
+                      <li>For each month generated, the Kernel-Lasso regressor will take the last 7 days of load data and use them to predict the load for the first day of the next month.</li>
+                      <li>To get a range of possible values, the regressor will be fed both the lower and upper bounds of the 7-day load data.</li>
+                    </ul>                    
+                  </div>
+                </div>
+              </div>
                 <div class="row" style="margin-bottom: 50px;">
                     <h2>Forecast Data</h2>
-                     {{data|safe}}
+                    <div class=" delay-01s animated fadeInDown wow animated">
+                      {{data|safe}}
+                    </div>
 
                 </div>
             </div>
