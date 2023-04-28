@@ -10,18 +10,18 @@
                     <div class="col-lg-5 col-sm-7">
                         <div class="top_left_cont zoomIn wow animated">
                             <h2 class="row justify-content-center text-dark">
-                                <i class="fa fa-sign-in-alt"style="color: white; pointer-events: none;">&nbsp;Admin Log In</i>
+                                <i class="fa fa-sign-in-alt"style="color: rgb(8, 10, 44); pointer-events: none;">&nbsp;Admin Log In</i>
                             </h2>
                             <form action="{%url 'AdminLoginCheck'%}" method="post" novalidate>
                             {%csrf_token%}
 
-                        <div style="color: white" id="div_id_username" class="form-group"><label for="id_username" class=" requiredField">
+                        <div style="color: red" id="div_id_username" class="form-group"><label for="id_username" class=" requiredField">
                             Username<span class="asteriskField">*</span> </label>
                             <div><input type="text" name="loginid" required autofocus autocapitalize="none"
                                         autocomplete="username" maxlength="150" class="textinput textInput form-control"
                                         required id="id_username"></div>
                         </div>
-                        <div style="color: white" id="div_id_password" class="form-group"><label for="id_password" class=" requiredField">
+                        <div style="color: red" id="div_id_password" class="form-group"><label for="id_password" class=" requiredField">
                             Password<span class="asteriskField">*</span> </label>
                             <div><input type="password" name="pswd" required autocomplete="current-password"
                                         class="textinput textInput form-control" required id="id_password"></div>

@@ -9,17 +9,17 @@
                 <div class="row">
                     <div class="col-lg-5 col-sm-7">
                         <div class="top_left_cont zoomIn wow animated">
-<h2>Welcome Back!</h2>
+<h2 style="color: rgb(8, 10, 44);">Welcome Back!</h2>
                              <form action="{%url 'UserLoginCheck'%}" method="post">
                         {%csrf_token%}
 
-                        <div style="color: white" id="div_id_username" class="form-group"><label for="id_username" class=" requiredField">
+                        <div style="color: red" id="div_id_username" class="form-group"><label for="id_username" class=" requiredField">
                             Username<span class="asteriskField">*</span> </label>
                             <div><input type="text" name="loginname" required autofocus autocapitalize="none"
                                         autocomplete="username" maxlength="150" class="textinput textInput form-control"
                                         required id="id_username"></div>
                         </div>
-                        <div style="color: white" id="div_id_password" class="form-group"><label for="id_password" class=" requiredField">
+                        <div style="color: red" id="div_id_password" class="form-group"><label for="id_password" class=" requiredField">
                             Password<span class="asteriskField">*</span> </label>
                             <div><input type="password" name="pswd" required autocomplete="current-password"
                                         class="textinput textInput form-control" required id="id_password"></div>
@@ -28,9 +28,10 @@
                         <button type="submit" style="color: red"class="btn btn-dark mb-2">Login</button>
 
                     </form>
+                    <br />
                     {% if messages %}
                     {% for message in messages %}
-                    <font color='white'> {{ message }}</font>
+                    <font color='red'> {{ message }}</font>
                     {% endfor %}
                     {% endif %}
                         </div>
